@@ -1,4 +1,6 @@
 // https://developer.spotify.com/documentation/web-playback-sdk/quick-start/#
+import SpotifyWebApi from 'spotify-web-api-js';
+
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
 const redirectUri = 'http://localhost:3000';
 const clientID = 'caf7a20385aa400c9826fd4f4abb7384';
@@ -26,3 +28,5 @@ export const getTokenFromUrl = () => {
       return initial;
     }, {});
 };
+
+export const spotifyApi = new SpotifyWebApi();
