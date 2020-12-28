@@ -28,6 +28,13 @@ function App() {
           payload: _user,
         });
       });
+
+      spotifyApi.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: 'SET_PLAYLISTS',
+          payload: playlists,
+        });
+      });
     }
   };
 
