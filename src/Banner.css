@@ -1,0 +1,27 @@
+.banner__info {
+  display: flex;
+  align-items: flex-end;
+}
+
+.banner__info > img {
+  width: 232px;
+  margin-right: 20px;
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+}
+
+.banner__infoText {
+  flex: 1;
+}
+
+.banner__infoText > h2 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.banner__infoText > strong {
+  font-size: 12px;
+}
+
+.banner__infoText > p {
+  font-size: 14px;
+}

@@ -7,8 +7,8 @@ import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import { useGlobalContext } from './StateProvider';
 
 function Sidebar() {
-  const [{ playlist }] = useGlobalContext();
-  console.log(playlist);
+  const [{ playlists }] = useGlobalContext();
+  console.log(playlists);
   return (
     <div className="sidebar">
       <img
@@ -22,10 +22,10 @@ function Sidebar() {
       <br />
       <strong className="sidebar__title">PLAYLIST</strong>
       <hr />
-      {playlist &&
-        playlist.map((item) => {
-          const { name } = item;
-          return <SidebarOption title={name} />;
+      {playlists &&
+        playlists.map((item) => {
+          const { name, id } = item;
+          return <SidebarOption key={id} title={name} />;
         })}
     </div>
   );

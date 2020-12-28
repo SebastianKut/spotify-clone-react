@@ -2,6 +2,11 @@
   flex: 0.8;
   height: 100vh;
   color: white;
+  overflow-y: overlay;
   padding: 30px;
   background: linear-gradient(rgb(91, 87, 115), rgb(0, 0, 0, 1));
+}
+
+.body::-webkit-scrollbar {
+  display: none;
 }

@@ -6,7 +6,7 @@ import SkipNextIcon from '@material-ui/icons/SkipNext';
 import ShuffleIcon from '@material-ui/icons/Shuffle';
 import RepeatIcon from '@material-ui/icons/Repeat';
 import VolumeDownIcon from '@material-ui/icons/VolumeDown';
-import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
+// import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import { Grid, Slider } from '@material-ui/core';
 
@@ -17,7 +17,7 @@ function Footer() {
         <img
           className="footer__albumLogo"
           src="https://www.theaudiodb.com/images/media/album/thumb/life-is-peachy-4e5d90ac78df9.jpg"
-          alt="album cover image"
+          alt="album cover"
         />
         <div className="footer__songInfo">
           <h4>A.D.I.D.A.S</h4>

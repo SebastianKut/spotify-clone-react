@@ -1,9 +1,10 @@
 export const initialState = {
   user: null,
-  playlist: [],
+  playlists: [],
   playing: false,
   item: null,
   token: null,
+  discover_weekly: {},
 };
 
 const reducer = (state, action) => {
@@ -23,7 +24,12 @@ const reducer = (state, action) => {
     case 'SET_PLAYLISTS':
       return {
         ...state,
-        playlist: action.payload.items,
+        playlists: action.payload.items,
+      };
+    case 'SET_DISCOVER_WEEKLY':
+      return {
+        ...state,
+        discover_weekly: action.payload,
       };
     default:
       return state;

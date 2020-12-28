@@ -1,0 +1,27 @@
+.body__songs {
+  padding-left: 0;
+}
+
+.body__icons {
+  display: flex;
+  align-items: center;
+}
+
+.body__icons > .MuiSvgIcon-root {
+  margin-right: 20px;
+}
+
+.body__shuffle {
+  font-size: 80px !important;
+  margin: 20px 0 20px 0;
+  color: #1db954;
+}
+
+.body__shuffle:hover {
+  transition: 100ms transform ease-in;
+  transform: scale(1.08);
+}
+
+.body__like {
+  color: #1db954;
+}

@@ -35,6 +35,21 @@ function App() {
           payload: playlists,
         });
       });
+
+      spotifyApi.getPlaylist('37i9dQZEVXcX651NVljfsf').then((playlist) => {
+        console.log('discover weekly', playlist);
+        const { description, name, images, tracks } = playlist;
+        const newPlaylist = {
+          description: description,
+          name: name,
+          image: images[0].url,
+          tracks: tracks.items,
+        };
+        dispatch({
+          type: 'SET_DISCOVER_WEEKLY',
+          payload: newPlaylist,
+        });
+      });
     }
   };
 
