@@ -1,7 +1,7 @@
 import React from 'react';
 import './Banner.css';
 
-function Banner({ description, name, image }) {
+function Banner({ description, name, image, followers, owner, total }) {
   return (
     <>
       <div className="banner__info">
@@ -10,6 +10,10 @@ function Banner({ description, name, image }) {
           <strong>PLAYLIST</strong>
           <h2>{name}</h2>
           <p>{description}</p>
+          <p>
+            <strong>{owner}</strong>
+            {` • ${followers ? followers : '0'} followers • ${total} songs`}
+          </p>
         </div>
       </div>
     </>

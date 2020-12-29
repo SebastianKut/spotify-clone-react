@@ -36,7 +36,44 @@
   color: white;
 }
 
-.body__songs > hr {
-  border: 0.1px solid #3d3c3d;
+.table__header {
+  border-bottom: 1px solid #3d3c3d;
   margin: 10px;
+  position: sticky;
+  top: 54px;
+}
+table,
+th,
+td {
+  border: none;
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  font-weight: 400;
+  font-size: 12px;
+  color: #b3b3b3;
+  padding-bottom: 15px;
+}
+
+.table__number {
+  text-align: center;
+  width: 3%;
+}
+.table__title {
+  width: 45%;
+}
+.table__album {
+  width: 25%;
+}
+.table__date {
+  width: 20%;
+}
+.table__time {
+  width: 7%;
 }

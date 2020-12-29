@@ -1,18 +1,18 @@
 .songRow {
-  padding: 10px 20px 10px 10px;
+  padding: 10px 20px 10px 0px;
   display: flex;
   align-items: center;
   z-index: 100;
   color: white;
 }
 
-.songRow:hover {
+.tableRow:hover {
   cursor: pointer;
   background-color: #383034;
   border-radius: 5px;
 }
 
-.songRow:hover p {
+.tableRow:hover p {
   color: white;
 }
 
@@ -33,4 +33,13 @@
 .songRow__album {
   height: 40px;
   width: 40px;
+}
+
+.table__data {
+  font-size: 13px;
+  color: #b3b3b3;
+}
+
+.table__data.number {
+  text-align: center;
 }

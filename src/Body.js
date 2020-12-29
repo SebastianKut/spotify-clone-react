@@ -8,11 +8,26 @@ import { useGlobalContext } from './StateProvider';
 function Body() {
   const [{ discover_weekly }] = useGlobalContext();
   console.log(discover_weekly);
-  let { description, name, image, tracks } = discover_weekly;
+  let {
+    description,
+    name,
+    image,
+    tracks,
+    followers,
+    owner,
+    total,
+  } = discover_weekly;
   return (
     <div className="body">
       <Header />
-      <Banner description={description} name={name} image={image} />
+      <Banner
+        description={description}
+        name={name}
+        image={image}
+        followers={followers}
+        owner={owner}
+        total={total}
+      />
       <Songs tracksList={tracks} />
     </div>
   );

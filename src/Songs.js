@@ -13,11 +13,19 @@ function Songs({ tracksList }) {
         <FavoriteIcon fontSize="large" className="body__like" />
         <MoreHorizIcon className="body__more" />
       </div>
-      <hr />
-      {tracksList &&
-        tracksList.map((track) => {
-          return <SongRow track={track} />;
-        })}
+      <table>
+        <tr className="table__header">
+          <th className="table__number">#</th>
+          <th className="table__title">TITLE</th>
+          <th className="table__album">ALBUM</th>
+          <th className="table__date">DATE ADDED</th>
+          <th className="table__time">TIME</th>
+        </tr>
+        {tracksList &&
+          tracksList.map((track, index) => (
+            <SongRow key={index} track={track} number={index + 1} />
+          ))}
+      </table>
     </div>
   );
 }
