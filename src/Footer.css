@@ -3,10 +3,11 @@
   justify-content: space-between;
   position: fixed;
   bottom: 0;
-  height: 65px;
+  height: 100px;
   width: 100%;
   background-color: #282828;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .footer__left {
@@ -30,13 +31,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 300px;
+  max-width: 250px;
+}
+.footer__icon {
+  color: #b3b3b3;
+  font-size: 1.3rem !important;
 }
 
-.footer__icon:hover,
-.footer__green:hover {
+.footer__icon:hover {
+  color: white;
+}
+
+.play__icon {
+  font-size: 2.5rem !important;
+}
+
+.play__icon:hover {
   transition: transform 0.2s ease-in-out;
-  transform: scale(1.2) !important;
+  transform: scale(1.1) !important;
 }
 
 .footer__right {
@@ -44,10 +56,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #b3b3b3;
+}
+
+.footer__right .MuiSvgIcon-root:hover {
   color: white;
 }
 
 .footer__right .MuiSlider-root {
+  color: #b3b3b3;
+}
+
+.footer__right .MuiSlider-root:hover {
   color: #1db954;
 }
 
@@ -57,8 +77,10 @@
 
 .footer__songInfo > h4 {
   margin-bottom: 5px;
+  font-size: 14px;
 }
 
 .footer__songInfo > p {
   font-size: 12px;
+  color: #b3b3b3;
 }

@@ -1,7 +1,11 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 30px;
+  padding-top: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .header__left {
@@ -13,18 +17,48 @@
   align-items: center;
   padding: 10px;
   margin-right: 10px;
+  height: 12px;
 }
 
 .header__left > input {
   border: none;
   max-width: 80%;
 }
+.header__left > input:focus {
+  outline: none;
+}
 
 .header__right {
   display: flex;
   align-items: center;
+  height: auto;
+  border-radius: 50px;
+  padding: 2px 5px 2px 2px;
+  background: rgba(0, 0, 0, 0.7);
 }
 
-.header__right > h4 {
-  margin-left: 10px;
+.header__right .MuiAvatar-root {
+  width: 30px;
+  height: 30px;
+}
+
+.header__right:hover {
+  background: #282828;
+}
+
+.header__right > h5 {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 992px) {
+  .header__right {
+    background: none;
+  }
+  .header__right > h5 {
+    display: none;
+  }
+  .header__right .MuiSvgIcon-root {
+    display: none;
+  }
 }

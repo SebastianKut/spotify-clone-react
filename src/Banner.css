@@ -1,6 +1,9 @@
 .banner__info {
   display: flex;
   align-items: flex-end;
+  margin-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .banner__info > img {
@@ -14,7 +17,7 @@
 }
 
 .banner__infoText > h2 {
-  font-size: 48px;
+  font-size: 96px;
   margin-bottom: 10px;
 }
 
@@ -24,4 +27,16 @@
 
 .banner__infoText > p {
   font-size: 14px;
+}
+
+@media screen and (max-width: 1200px) {
+  .banner__infoText > h2 {
+    font-size: 72px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .banner__infoText > h2 {
+    font-size: 48px;
+  }
 }

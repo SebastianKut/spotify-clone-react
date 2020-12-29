@@ -25,22 +25,23 @@ function Footer() {
         </div>
       </div>
       <div className="footer__center">
-        <ShuffleIcon className="footer__green" />
+        <ShuffleIcon className="footer__icon" />
         <SkipPreviousIcon className="footer__icon" />
-        <PlayCircleOutlineIcon fontSize="large" className="footer__icon" />
+        <PlayCircleOutlineIcon className="footer__icon play__icon" />
         <SkipNextIcon className="footer__icon" />
-        <RepeatIcon className="footer__green" />
+        <RepeatIcon className="footer__icon" />
       </div>
       <div className="footer__right">
         <Grid container spacing={2}>
           <Grid item>
             <PlaylistPlayIcon />
-          </Grid>
-          <Grid item>
             <VolumeDownIcon />
           </Grid>
           <Grid item xs>
-            <Slider aria-labelledby="continuous-slider" />
+            <Slider
+              aria-labelledby="continuous-slider"
+              className="volume__control"
+            />
           </Grid>
         </Grid>
       </div>

@@ -5,7 +5,7 @@ import { utilities } from './utilities';
 function SidebarOption({ title, Icon }) {
   const { truncate } = utilities;
   return (
-    <div className="sidebarOption">
+    <div className={Icon ? 'sidebarOption' : 'sidebarOption playlistElement'}>
       {Icon && <Icon className="sidebarOption__icon" />}
       {Icon ? <h4>{title}</h4> : <p>{truncate(title, 30)}</p>}
     </div>

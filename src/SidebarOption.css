@@ -1,10 +1,16 @@
 .sidebarOption {
   display: flex;
   align-items: center;
-  color: grey;
+  color: #b3b3b3;
   height: 40px;
   cursor: pointer;
   transition: 300ms color ease-in;
+  padding: 0;
+}
+
+.playlistElement {
+  height: 30px;
+  transition: none;
 }
 
 .sidebarOption:hover {
@@ -14,10 +20,15 @@
 .sidebarOption__icon {
   padding-left: 10px;
   padding-right: 10px;
+  font-size: 30px !important;
 }
 
 .sidebarOption > p {
   margin-top: 5px;
   margin-left: 10px;
+  font-size: 14px;
+}
+
+.sidebarOption > h4 {
   font-size: 14px;
 }

@@ -17,11 +17,8 @@ function SongRow({ track }) {
     <div className="songRow">
       <img src={image} alt="" className="songRow__album" />
       <div className="songRow__info">
-        <h1>{trackName}</h1>
-        <p>
-          {artistsName}
-          {albumName}
-        </p>
+        <h2>{trackName}</h2>
+        <p>{`${artistsName} - ALBUM (${albumName})`}</p>
       </div>
     </div>
   );

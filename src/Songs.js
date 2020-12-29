@@ -11,8 +11,9 @@ function Songs({ tracksList }) {
       <div className="body__icons">
         <PlayCircleFilledIcon className="body__shuffle" />
         <FavoriteIcon fontSize="large" className="body__like" />
-        <MoreHorizIcon />
+        <MoreHorizIcon className="body__more" />
       </div>
+      <hr />
       {tracksList &&
         tracksList.map((track) => {
           return <SongRow track={track} />;

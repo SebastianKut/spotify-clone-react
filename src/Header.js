@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.css';
 import SearchIcon from '@material-ui/icons/Search';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { Avatar } from '@material-ui/core';
 import { useGlobalContext } from './StateProvider';
 
@@ -17,7 +18,8 @@ function Header() {
           src={user && user.images[0].url}
           alt={user && user.display_name}
         />
-        <h4>{user && user.display_name}</h4>
+        <h5>{user && user.display_name}</h5>
+        <ArrowDropDownIcon />
       </div>
     </div>
   );

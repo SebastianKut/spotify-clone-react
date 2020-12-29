@@ -16,6 +16,7 @@
   font-weight: 800;
   color: white;
   text-decoration: none;
+  transition: 300ms color ease-in;
 }
 
 .login > a:hover {

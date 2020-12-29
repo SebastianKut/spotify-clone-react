@@ -1,5 +1,7 @@
 .body__songs {
-  padding-left: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), 30%, #121212);
 }
 
 .body__icons {
@@ -12,7 +14,7 @@
 }
 
 .body__shuffle {
-  font-size: 80px !important;
+  font-size: 70px !important;
   margin: 20px 0 20px 0;
   color: #1db954;
 }
@@ -24,4 +26,17 @@
 
 .body__like {
   color: #1db954;
+}
+
+.body__more {
+  color: #b3b3b3;
+}
+
+.body__more:hover {
+  color: white;
+}
+
+.body__songs > hr {
+  border: 0.1px solid #3d3c3d;
+  margin: 10px;
 }
