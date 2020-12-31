@@ -42,4 +42,41 @@
 
 .table__data.number {
   text-align: center;
+  font-size: 15px;
+}
+
+.table__data .playIcon {
+  vertical-align: middle;
+  font-size: 22px;
+  color: white;
+}
+
+.table__data .heartIcon,
+.table__data .removeIcon,
+.table__data .moreIcon {
+  font-size: 19px;
+  visibility: hidden;
+}
+
+.table__data > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.heartIcon.show,
+.removeIcon.show,
+.moreIcon.show {
+  visibility: visible;
+}
+
+.table__data .heartIcon:hover,
+.table__data .removeIcon:hover {
+  color: white;
+}
+
+.table__data .moreIcon {
+  color: white;
 }

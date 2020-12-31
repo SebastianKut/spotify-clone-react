@@ -42,6 +42,12 @@
   position: sticky;
   top: 54px;
 }
+
+.table__header .MuiSvgIcon-root {
+  font-size: 18px;
+  vertical-align: middle;
+}
+
 table,
 th,
 td {
@@ -63,17 +69,20 @@ th {
 
 .table__number {
   text-align: center;
-  width: 3%;
+  width: 5%;
 }
 .table__title {
-  width: 45%;
+  width: 40%;
 }
 .table__album {
   width: 25%;
 }
 .table__date {
-  width: 20%;
+  width: 15%;
 }
 .table__time {
-  width: 7%;
+  width: 15%;
+  text-align: center;
+  padding-left: 100px;
+  padding-right: 50px;
 }
