@@ -10,7 +10,7 @@ function SongRow({ track, number }) {
   const [isVisible, setIsVisible] = useState(false);
   const { added_at } = track;
   const { artists, name, album, duration_ms } = track.track;
-  console.log('Piosenka ', track);
+
   const newData = {
     image: album.images[0].url,
     trackName: name,

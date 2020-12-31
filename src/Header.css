@@ -6,7 +6,11 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
-  padding: 0px 30px 10px 30px;
+  padding: 10px 30px 10px 30px;
+  transition: 300ms all ease-in;
+}
+.header.solid {
+  background-color: #47455b;
 }
 
 .header__left {

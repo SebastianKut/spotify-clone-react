@@ -6,7 +6,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import QueryBuilderOutlinedIcon from '@material-ui/icons/QueryBuilderOutlined';
 import SongRow from './SongRow';
 
-function Songs({ tracksList }) {
+function Songs({ tracksList, solid }) {
   return (
     <div className="body__songs">
       <div className="body__icons">
@@ -15,7 +15,7 @@ function Songs({ tracksList }) {
         <MoreHorizIcon className="body__more" />
       </div>
       <table>
-        <tr className="table__header">
+        <tr className={`table__header ${solid && 'solid'}`}>
           <th className="table__number">#</th>
           <th className="table__title">TITLE</th>
           <th className="table__album">ALBUM</th>

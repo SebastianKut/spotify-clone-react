@@ -41,6 +41,12 @@
   margin: 10px;
   position: sticky;
   top: 54px;
+  transition: 300ms all ease-in;
+  vertical-align: middle;
+}
+
+.table__header.solid {
+  background-color: #222222;
 }
 
 .table__header .MuiSvgIcon-root {
@@ -64,7 +70,8 @@ th {
   font-weight: 400;
   font-size: 12px;
   color: #b3b3b3;
-  padding-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .table__number {

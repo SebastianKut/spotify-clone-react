@@ -5,10 +5,11 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { Avatar } from '@material-ui/core';
 import { useGlobalContext } from './StateProvider';
 
-function Header() {
+function Header({ solid }) {
   const [{ user }] = useGlobalContext();
+
   return (
-    <div className="header">
+    <div className={`header ${solid && 'solid'}`}>
       <div className="header__left">
         <SearchIcon />
         <input type="text" placeholder="Search" />

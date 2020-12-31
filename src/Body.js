@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Body.css';
 import Header from './Header';
 import Banner from './Banner';
@@ -6,8 +6,10 @@ import Songs from './Songs';
 import { useGlobalContext } from './StateProvider';
 
 function Body() {
+  const [isHeaderSolid, setIsHeaderSolid] = useState(false);
+  const [isTableSolid, setIsTableSolid] = useState(false);
   const [{ discover_weekly }] = useGlobalContext();
-  console.log(discover_weekly);
+
   let {
     description,
     name,
@@ -17,9 +19,34 @@ function Body() {
     owner,
     total,
   } = discover_weekly;
+
+  const handleScroll = () => {
+    if (document.querySelector('.body').scrollTop > 160) {
+      setIsHeaderSolid(true);
+    } else {
+      setIsHeaderSolid(false);
+    }
+    if (
+      document.querySelector('.table__header').getBoundingClientRect().top <= 60
+    ) {
+      setIsTableSolid(true);
+    } else {
+      setIsTableSolid(false);
+    }
+  };
+
+  useEffect(() => {
+    document.querySelector('.body').addEventListener('scroll', handleScroll);
+    return () => {
+      document
+        .querySelector('.body')
+        .removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className="body">
-      <Header />
+      <Header solid={isHeaderSolid} />
       <Banner
         description={description}
         name={name}
@@ -28,7 +55,7 @@ function Body() {
         owner={owner}
         total={total}
       />
-      <Songs tracksList={tracks} />
+      <Songs tracksList={tracks} solid={isTableSolid} />
     </div>
   );
 }
