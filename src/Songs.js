@@ -1,16 +1,44 @@
 import React from 'react';
 import './Songs.css';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import QueryBuilderOutlinedIcon from '@material-ui/icons/QueryBuilderOutlined';
 import SongRow from './SongRow';
+import { useGlobalContext } from './StateProvider';
 
 function Songs({ tracksList, solid }) {
+  const [{ is_playing }, dispatch] = useGlobalContext();
+  const handlePlayback = () => {
+    if (is_playing) {
+      //spotifyApi.pause(); //requires premium account
+      dispatch({
+        type: 'SET_PLAYING_STATUS',
+        payload: false,
+      });
+    } else {
+      //spotifyApi.play(); //requires premium account
+      dispatch({
+        type: 'SET_PLAYING_STATUS',
+        payload: true,
+      });
+    }
+  };
   return (
     <div className="body__songs">
       <div className="body__icons">
-        <PlayCircleFilledIcon className="body__shuffle" />
+        {is_playing ? (
+          <PauseCircleFilledIcon
+            className="body__shuffle"
+            onClick={handlePlayback}
+          />
+        ) : (
+          <PlayCircleFilledIcon
+            className="body__shuffle"
+            onClick={handlePlayback}
+          />
+        )}
         <FavoriteIcon fontSize="large" className="body__like" />
         <MoreHorizIcon className="body__more" />
       </div>

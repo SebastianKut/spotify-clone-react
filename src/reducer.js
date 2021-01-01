@@ -1,8 +1,8 @@
 export const initialState = {
   user: null,
   playlists: [],
-  playing: false,
-  item: null,
+  is_playing: false,
+  current_song: null,
   token: null,
   discover_weekly: {},
 };
@@ -30,6 +30,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         discover_weekly: action.payload,
+      };
+    case 'SET_CURRENT_SONG':
+      return {
+        ...state,
+        current_song: action.payload,
+      };
+    case 'SET_PLAYING_STATUS':
+      return {
+        ...state,
+        is_playing: action.payload,
       };
     default:
       return state;
