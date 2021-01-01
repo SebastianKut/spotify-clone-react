@@ -76,7 +76,7 @@ th {
 
 .table__number {
   text-align: center;
-  width: 5%;
+  width: 4%;
 }
 .table__title {
   width: 40%;
@@ -88,8 +88,12 @@ th {
   width: 15%;
 }
 .table__time {
-  width: 15%;
+  width: 11%;
   text-align: center;
   padding-left: 100px;
   padding-right: 50px;
+}
+.table__filler__left,
+.table__filler__right {
+  width: 2.5%;
 }

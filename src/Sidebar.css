@@ -26,6 +26,8 @@
   margin: 10px;
 }
 
-.sidebar__playlists:hover {
+.sidebar__playlists {
   overflow-y: scroll;
+  height: calc(100vh - 443px);
+  scrollbar-color: rgb(60, 60, 60) #040404;
 }
