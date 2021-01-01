@@ -8,6 +8,7 @@ import { useGlobalContext } from './StateProvider';
 function Body() {
   const [isHeaderSolid, setIsHeaderSolid] = useState(false);
   const [isTableSolid, setIsTableSolid] = useState(false);
+  const [showTitle, setShowTitle] = useState(false);
   const [{ discover_weekly }] = useGlobalContext();
 
   let {
@@ -26,8 +27,15 @@ function Body() {
     } else {
       setIsHeaderSolid(false);
     }
+
+    if (document.querySelector('.body').scrollTop > 350) {
+      setShowTitle(true);
+    } else {
+      setShowTitle(false);
+    }
+
     if (
-      document.querySelector('.table__header').getBoundingClientRect().top <= 60
+      document.querySelector('.table__header').getBoundingClientRect().top <= 67
     ) {
       setIsTableSolid(true);
     } else {
@@ -46,7 +54,7 @@ function Body() {
 
   return (
     <div className="body">
-      <Header solid={isHeaderSolid} />
+      <Header solid={isHeaderSolid} playlistName={name} showTitle={showTitle} />
       <Banner
         description={description}
         name={name}

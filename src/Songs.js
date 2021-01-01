@@ -16,6 +16,7 @@ function Songs({ tracksList, solid }) {
       </div>
       <table>
         <tr className={`table__header ${solid && 'solid'}`}>
+          <th className="table__filler"></th>
           <th className="table__number">#</th>
           <th className="table__title">TITLE</th>
           <th className="table__album">ALBUM</th>
@@ -23,6 +24,7 @@ function Songs({ tracksList, solid }) {
           <th className="table__time">
             <QueryBuilderOutlinedIcon />
           </th>
+          <th className="table__filler"></th>
         </tr>
         {tracksList &&
           tracksList.map((track, index) => (

@@ -9,8 +9,12 @@ import VolumeDownIcon from '@material-ui/icons/VolumeDown';
 // import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import { Grid, Slider } from '@material-ui/core';
+import { useGlobalContext } from './StateProvider';
 
 function Footer() {
+  const [{ discover_weekly }] = useGlobalContext();
+  const { tracks } = discover_weekly;
+
   return (
     <div className="footer">
       <div className="footer__left">
@@ -20,8 +24,8 @@ function Footer() {
           alt="album cover"
         />
         <div className="footer__songInfo">
-          <h4>A.D.I.D.A.S</h4>
-          <p>Korn</p>
+          <h4>{tracks && tracks[0].track.name}</h4>
+          <p>{tracks && tracks[0].track.artists[0].name}</p>
         </div>
       </div>
       <div className="footer__center">

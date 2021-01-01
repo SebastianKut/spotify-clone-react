@@ -13,7 +13,33 @@
   background-color: #47455b;
 }
 
-.header__left {
+.header__left,
+.title__bar {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.title__bar {
+  justify-content: flex-start;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 300ms all ease-in;
+}
+
+.title__bar.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.title__bar .MuiSvgIcon-root {
+  margin: 0 10px 0 10px;
+  color: #1db954;
+  font-size: 3rem;
+}
+
+.search__bar {
   min-width: 60px;
   background-color: white;
   color: grey;
@@ -21,15 +47,15 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  margin-right: 10px;
+  margin-right: 0;
   height: 12px;
 }
 
-.header__left > input {
+.search__bar > input {
   border: none;
   max-width: 80%;
 }
-.header__left > input:focus {
+.search__bar > input:focus {
   outline: none;
 }
 

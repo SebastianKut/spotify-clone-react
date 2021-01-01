@@ -37,6 +37,7 @@ function SongRow({ track, number }) {
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => setIsVisible(false)}
     >
+      <td className="table__data filler"></td>
       <td className="table__data number">
         {isVisible ? <PlayArrowIcon className="playIcon" /> : <p>{number}</p>}
       </td>
@@ -65,6 +66,7 @@ function SongRow({ track, number }) {
           <MoreHorizIcon className={`moreIcon ${isVisible && 'show'}`} />
         </span>
       </td>
+      <td className="table__data filler"></td>
     </tr>
   );
 }
