@@ -5,11 +5,11 @@ import Banner from './Banner';
 import Songs from './Songs';
 import { useGlobalContext } from './StateProvider';
 
-function Body() {
+function Body(spotifyApi) {
   const [isHeaderSolid, setIsHeaderSolid] = useState(false);
   const [isTableSolid, setIsTableSolid] = useState(false);
   const [showTitle, setShowTitle] = useState(false);
-  const [{ discover_weekly }] = useGlobalContext();
+  const { discover_weekly } = useGlobalContext();
 
   let {
     description,
@@ -54,7 +54,12 @@ function Body() {
 
   return (
     <div className="body">
-      <Header solid={isHeaderSolid} playlistName={name} showTitle={showTitle} />
+      <Header
+        solid={isHeaderSolid}
+        playlistName={name}
+        showTitle={showTitle}
+        spotifyApi={spotifyApi}
+      />
       <Banner
         description={description}
         name={name}
@@ -63,7 +68,7 @@ function Body() {
         owner={owner}
         total={total}
       />
-      <Songs tracksList={tracks} solid={isTableSolid} />
+      <Songs tracksList={tracks} solid={isTableSolid} spotifyApi={spotifyApi} />
     </div>
   );
 }

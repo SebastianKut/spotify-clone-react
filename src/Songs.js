@@ -8,35 +8,21 @@ import QueryBuilderOutlinedIcon from '@material-ui/icons/QueryBuilderOutlined';
 import SongRow from './SongRow';
 import { useGlobalContext } from './StateProvider';
 
-function Songs({ tracksList, solid }) {
-  const [{ is_playing }, dispatch] = useGlobalContext();
-  const handlePlayback = () => {
-    if (is_playing) {
-      //spotifyApi.pause(); //requires premium account
-      dispatch({
-        type: 'SET_PLAYING_STATUS',
-        payload: false,
-      });
-    } else {
-      //spotifyApi.play(); //requires premium account
-      dispatch({
-        type: 'SET_PLAYING_STATUS',
-        payload: true,
-      });
-    }
-  };
+function Songs({ tracksList, solid, spotifyApi }) {
+  const { is_playing, handlePlayback } = useGlobalContext();
+
   return (
     <div className="body__songs">
       <div className="body__icons">
         {is_playing ? (
           <PauseCircleFilledIcon
             className="body__shuffle"
-            onClick={handlePlayback}
+            onClick={() => handlePlayback(is_playing, spotifyApi)}
           />
         ) : (
           <PlayCircleFilledIcon
             className="body__shuffle"
-            onClick={handlePlayback}
+            onClick={() => handlePlayback(is_playing, spotifyApi)}
           />
         )}
         <FavoriteIcon fontSize="large" className="body__like" />

@@ -6,27 +6,10 @@ import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { Avatar } from '@material-ui/core';
 import { useGlobalContext } from './StateProvider';
-import { SignalCellularNullOutlined } from '@material-ui/icons';
 
-function Header({ solid, playlistName, showTitle }) {
-  const [{ user, is_playing }, dispatch] = useGlobalContext();
+function Header({ solid, playlistName, showTitle, spotifyApi }) {
+  const { user, is_playing, handlePlayback } = useGlobalContext();
   console.log(user);
-
-  const handlePlayback = () => {
-    if (is_playing) {
-      //spotifyApi.pause(); //requires premium account
-      dispatch({
-        type: 'SET_PLAYING_STATUS',
-        payload: false,
-      });
-    } else {
-      //spotifyApi.play(); //requires premium account
-      dispatch({
-        type: 'SET_PLAYING_STATUS',
-        payload: true,
-      });
-    }
-  };
 
   return (
     <div className={`header ${solid && 'solid'}`}>
@@ -37,9 +20,13 @@ function Header({ solid, playlistName, showTitle }) {
         </div>
         <div className={`title__bar ${showTitle && 'visible'}`}>
           {is_playing ? (
-            <PauseCircleFilledIcon onClick={handlePlayback} />
+            <PauseCircleFilledIcon
+              onClick={() => handlePlayback(is_playing, spotifyApi)}
+            />
           ) : (
-            <PlayCircleFilledIcon onClick={handlePlayback} />
+            <PlayCircleFilledIcon
+              onClick={() => handlePlayback(is_playing, spotifyApi)}
+            />
           )}
           <h2>{playlistName}</h2>
         </div>

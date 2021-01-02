@@ -7,7 +7,7 @@ import { useGlobalContext } from './StateProvider';
 import { spotifyApi } from './spotify';
 
 function App() {
-  const [{ token }, dispatch] = useGlobalContext();
+  const { token, dispatch } = useGlobalContext();
 
   const getToken = () => {
     const _token = getTokenFromUrl().access_token;

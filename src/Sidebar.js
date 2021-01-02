@@ -9,7 +9,7 @@ import StarsIcon from '@material-ui/icons/Stars';
 import { useGlobalContext } from './StateProvider';
 
 function Sidebar() {
-  const [{ playlists }] = useGlobalContext();
+  const { playlists } = useGlobalContext();
   console.log(playlists);
   return (
     <div className="sidebar">

@@ -9,7 +9,7 @@ function Player({ spotifyApi }) {
     <div className="player">
       <div className="player__body">
         <Sidebar />
-        <Body />
+        <Body spotifyApi={spotifyApi} />
       </div>
       <Footer spotifyApi={spotifyApi} />
     </div>
