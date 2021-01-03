@@ -42,6 +42,10 @@
   color: white;
 }
 
+.footer__icon.active {
+  color: #1db954;
+}
+
 .play__icon {
   font-size: 2.5rem !important;
 }

@@ -75,6 +75,7 @@
 
 .header__right:hover {
   background: #282828;
+  cursor: pointer;
 }
 
 .header__right > h5 {

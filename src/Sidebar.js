@@ -31,7 +31,7 @@ function Sidebar() {
         {playlists &&
           playlists.map((item) => {
             const { name, id } = item;
-            return <SidebarOption key={id} title={name} />;
+            return <SidebarOption key={id} title={name} playlistId={id} />;
           })}
       </div>
     </div>

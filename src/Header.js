@@ -8,8 +8,20 @@ import { Avatar } from '@material-ui/core';
 import { useGlobalContext } from './StateProvider';
 
 function Header({ solid, playlistName, showTitle, spotifyApi }) {
-  const { user, is_playing, handlePlayback } = useGlobalContext();
+  const {
+    user,
+    is_playing,
+    handlePlayback,
+    dispatch,
+    submenu_show,
+  } = useGlobalContext();
   console.log(user);
+  const handleShowSubmenu = () => {
+    dispatch({
+      type: 'SET_SHOW_SUBMENU',
+      payload: !submenu_show,
+    });
+  };
 
   return (
     <div className={`header ${solid && 'solid'}`}>
@@ -31,7 +43,7 @@ function Header({ solid, playlistName, showTitle, spotifyApi }) {
           <h2>{playlistName}</h2>
         </div>
       </div>
-      <div className="header__right">
+      <div className="header__right" onClick={handleShowSubmenu}>
         <Avatar
           src={user && user.images[0]?.url}
           alt={user && user.display_name}

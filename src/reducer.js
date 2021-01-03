@@ -3,8 +3,12 @@ export const initialState = {
   playlists: [],
   is_playing: false,
   current_song: null,
+  repeat: false,
+  shuffle: false,
   token: null,
-  discover_weekly: {},
+  current_playlist: {},
+  playlist_id: '37i9dQZEVXcX651NVljfsf',
+  submenu_show: false,
 };
 
 const reducer = (state, action) => {
@@ -26,10 +30,10 @@ const reducer = (state, action) => {
         ...state,
         playlists: action.payload.items,
       };
-    case 'SET_DISCOVER_WEEKLY':
+    case 'SET_CURRENT_PLAYLIST':
       return {
         ...state,
-        discover_weekly: action.payload,
+        current_playlist: action.payload,
       };
     case 'SET_CURRENT_SONG':
       return {
@@ -40,6 +44,26 @@ const reducer = (state, action) => {
       return {
         ...state,
         is_playing: action.payload,
+      };
+    case 'SET_SHUFFLE_STATUS':
+      return {
+        ...state,
+        shuffle: action.payload,
+      };
+    case 'SET_REPEAT_STATUS':
+      return {
+        ...state,
+        repeat: action.payload,
+      };
+    case 'SET_PLAYLIST_ID':
+      return {
+        ...state,
+        playlist_id: action.payload,
+      };
+    case 'SET_SHOW_SUBMENU':
+      return {
+        ...state,
+        submenu_show: action.payload,
       };
     default:
       return state;

@@ -38,7 +38,7 @@ function SongRow({ track, number }) {
       onMouseLeave={() => setIsVisible(false)}
     >
       <div className="table__data filler"></div>
-      <td className="table__data number highlight">
+      <td className="table__data number rounded_left">
         {isVisible ? <PlayArrowIcon className="playIcon" /> : <p>{number}</p>}
       </td>
       <td className="songRow highlight">
@@ -48,13 +48,13 @@ function SongRow({ track, number }) {
           <p>{artistsName}</p>
         </div>
       </td>
-      <td className="table__data highlight">
+      <td className="table__data">
         <p>{albumName}</p>
       </td>
-      <td className="table__data highlight">
+      <td className="table__data">
         <p>{dateAdded}</p>
       </td>
-      <td className="table__data highlight">
+      <td className="table__data rounded_right">
         <span>
           <FavoriteBorderOutlinedIcon
             className={`heartIcon ${isVisible && 'show'}`}

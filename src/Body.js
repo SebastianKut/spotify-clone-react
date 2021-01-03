@@ -3,13 +3,14 @@ import './Body.css';
 import Header from './Header';
 import Banner from './Banner';
 import Songs from './Songs';
+import Submenu from './Submenu';
 import { useGlobalContext } from './StateProvider';
 
 function Body(spotifyApi) {
   const [isHeaderSolid, setIsHeaderSolid] = useState(false);
   const [isTableSolid, setIsTableSolid] = useState(false);
   const [showTitle, setShowTitle] = useState(false);
-  const { discover_weekly } = useGlobalContext();
+  const { current_playlist, submenu_show } = useGlobalContext();
 
   let {
     description,
@@ -19,7 +20,7 @@ function Body(spotifyApi) {
     followers,
     owner,
     total,
-  } = discover_weekly;
+  } = current_playlist;
 
   const handleScroll = () => {
     if (document.querySelector('.body').scrollTop > 160) {
@@ -60,6 +61,7 @@ function Body(spotifyApi) {
         showTitle={showTitle}
         spotifyApi={spotifyApi}
       />
+      {submenu_show && <Submenu />}
       <Banner
         description={description}
         name={name}

@@ -1,0 +1,39 @@
+.submenu {
+  position: fixed;
+  z-index: 999;
+  top: 60px;
+  right: 45px;
+  width: 175px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #282828;
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.logout {
+  border-top: 0.5px solid #3d3c3d;
+  margin-top: 5px;
+}
+
+.submenu ul {
+  margin: 0;
+  padding: 0;
+}
+
+.submenu li {
+  list-style: none;
+  color: #b3b3b3;
+  font-size: 13px;
+  padding: 5px 0 5px 0;
+}
+
+.submenu li {
+  padding: 10px;
+}
+
+.submenu li:hover {
+  background: #3e3e3e;
+  border-radius: 2px;
+}

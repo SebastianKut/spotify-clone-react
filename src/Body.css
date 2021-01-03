@@ -8,6 +8,7 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
   scrollbar-color: rgb(60, 60, 60) #04040400;
+  position: relative;
 }
 
 body::-webkit-scrollbar {
