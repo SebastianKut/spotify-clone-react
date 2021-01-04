@@ -19,23 +19,32 @@ function Player() {
   };
 
   useEffect(() => {
-    spotifyApi.getPlaylist(playlist_id).then((playlist) => {
-      console.log('discover weekly', playlist);
-      const { description, name, images, tracks, followers, owner } = playlist;
-      const newPlaylist = {
-        description: description,
-        name: name,
-        image: images[0].url,
-        tracks: tracks.items,
-        followers: followers.total,
-        owner: owner.display_name,
-        total: tracks.total,
-      };
-      dispatch({
-        type: 'SET_CURRENT_PLAYLIST',
-        payload: newPlaylist,
-      });
-    });
+    spotifyApi
+      .getPlaylist(playlist_id)
+      .then((playlist) => {
+        const {
+          description,
+          name,
+          images,
+          tracks,
+          followers,
+          owner,
+        } = playlist;
+        const newPlaylist = {
+          description: description,
+          name: name,
+          image: images[0].url,
+          tracks: tracks.items,
+          followers: followers.total,
+          owner: owner.display_name,
+          total: tracks.total,
+        };
+        dispatch({
+          type: 'SET_CURRENT_PLAYLIST',
+          payload: newPlaylist,
+        });
+      })
+      .catch((error) => console.log(error));
   }, [playlist_id, dispatch]);
 
   return (

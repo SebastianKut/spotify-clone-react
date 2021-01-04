@@ -22,71 +22,80 @@ function App() {
 
       spotifyApi.setAccessToken(_token);
 
-      spotifyApi.getMe().then((_user) => {
-        dispatch({
-          type: 'SET_USER',
-          payload: _user,
-        });
-      });
+      spotifyApi
+        .getMe()
+        .then((_user) => {
+          dispatch({
+            type: 'SET_USER',
+            payload: _user,
+          });
+        })
+        .catch((error) => console.log(error.message));
 
-      spotifyApi.getUserPlaylists().then((playlists) => {
-        dispatch({
-          type: 'SET_PLAYLISTS',
-          payload: playlists,
-        });
-      });
+      spotifyApi
+        .getUserPlaylists()
+        .then((playlists) => {
+          dispatch({
+            type: 'SET_PLAYLISTS',
+            payload: playlists,
+          });
+        })
+        .catch((error) => console.log(error.message));
 
-      spotifyApi.getPlaylist(playlist_id).then((playlist) => {
-        console.log('discover weekly', playlist);
-        const {
-          description,
-          name,
-          images,
-          tracks,
-          followers,
-          owner,
-        } = playlist;
-        const newPlaylist = {
-          description: description,
-          name: name,
-          image: images[0].url,
-          tracks: tracks.items,
-          followers: followers.total,
-          owner: owner.display_name,
-          total: tracks.total,
-        };
-        dispatch({
-          type: 'SET_CURRENT_PLAYLIST',
-          payload: newPlaylist,
-        });
-      });
+      spotifyApi
+        .getPlaylist(playlist_id)
+        .then((playlist) => {
+          const {
+            description,
+            name,
+            images,
+            tracks,
+            followers,
+            owner,
+          } = playlist;
+          const newPlaylist = {
+            description: description,
+            name: name,
+            image: images[0].url,
+            tracks: tracks.items,
+            followers: followers.total,
+            owner: owner.display_name,
+            total: tracks.total,
+          };
+          dispatch({
+            type: 'SET_CURRENT_PLAYLIST',
+            payload: newPlaylist,
+          });
+        })
+        .catch((error) => console.log(error.message));
 
-      spotifyApi.getMyCurrentPlaybackState().then((res) => {
-        console.log('current playback state', res);
+      spotifyApi
+        .getMyCurrentPlaybackState()
+        .then((res) => {
+          dispatch({
+            type: 'SET_CURRENT_SONG',
+            payload: res.item,
+          });
 
-        dispatch({
-          type: 'SET_CURRENT_SONG',
-          payload: res.item,
-        });
+          dispatch({
+            type: 'SET_PLAYING_STATUS',
+            payload: res.is_playing,
+          });
 
-        dispatch({
-          type: 'SET_PLAYING_STATUS',
-          payload: res.is_playing,
-        });
+          dispatch({
+            type: 'SET_SHUFFLE_STATUS',
+            payload: res.shuffle_state,
+          });
 
-        dispatch({
-          type: 'SET_SHUFFLE_STATUS',
-          payload: res.shuffle_state,
-        });
-
-        dispatch({
-          type: 'SET_REPEAT_STATUS',
-          payload:
-            res.repeat_state === 'context' || res.repeat_state === 'track'
-              ? true
-              : false,
-        });
-      });
+          dispatch({
+            type: 'SET_REPEAT_STATUS',
+            payload:
+              res.repeat_state === 'context' || res.repeat_state === 'track'
+                ? true
+                : false,
+          });
+        })
+        .catch((error) => console.log(error.message));
     }
   }, [dispatch, playlist_id]);
 

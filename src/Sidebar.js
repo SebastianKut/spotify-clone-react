@@ -10,7 +10,7 @@ import { useGlobalContext } from './StateProvider';
 
 function Sidebar() {
   const { playlists } = useGlobalContext();
-  console.log(playlists);
+
   return (
     <div className="sidebar">
       <img

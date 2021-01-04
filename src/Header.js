@@ -15,7 +15,7 @@ function Header({ solid, playlistName, showTitle }) {
     dispatch,
     submenu_show,
   } = useGlobalContext();
-  console.log(user);
+
   const handleShowSubmenu = () => {
     dispatch({
       type: 'SET_SHOW_SUBMENU',

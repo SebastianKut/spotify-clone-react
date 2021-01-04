@@ -26,31 +26,37 @@ function Footer() {
 
   const handleNext = () => {
     // spotifyApi.skipToNext(); //premium account required
-    spotifyApi.getMyCurrentPlayingTrack().then((res) => {
-      // console.log('currentplayingtrack', res);
-      dispatch({
-        type: 'SET_CURRENT_SONG',
-        payload: res.item,
-      });
-      dispatch({
-        type: 'SET_PLAYING_STATUS',
-        payload: true,
-      });
-    });
+    spotifyApi
+      .getMyCurrentPlayingTrack()
+      .then((res) => {
+        // console.log('currentplayingtrack', res);
+        dispatch({
+          type: 'SET_CURRENT_SONG',
+          payload: res.item,
+        });
+        dispatch({
+          type: 'SET_PLAYING_STATUS',
+          payload: true,
+        });
+      })
+      .catch((error) => console.log(error.message));
   };
 
   const handlePrevious = () => {
     // spotifyApi.skipToPrevious(); //premium account required
-    spotifyApi.getMyCurrentPlayingTrack().then((res) => {
-      dispatch({
-        type: 'SET_CURRENT_SONG',
-        payload: res.item,
-      });
-      dispatch({
-        type: 'SET_PLAYING_STATUS',
-        payload: true,
-      });
-    });
+    spotifyApi
+      .getMyCurrentPlayingTrack()
+      .then((res) => {
+        dispatch({
+          type: 'SET_CURRENT_SONG',
+          payload: res.item,
+        });
+        dispatch({
+          type: 'SET_PLAYING_STATUS',
+          payload: true,
+        });
+      })
+      .catch((error) => console.log(error.message));
   };
 
   const handleShuffle = () => {

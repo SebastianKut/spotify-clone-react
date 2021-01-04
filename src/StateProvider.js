@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
-//import { spotifyApi } from './spotify';
+import { spotifyApi } from './spotify';
 
 export const StateProviderContext = createContext();
 
@@ -9,25 +9,27 @@ export const StateProvider = ({ reducer, initialState, children }) => {
   //functions used in multiple components
   const handlePlayback = (is_playing) => {
     if (is_playing) {
-      try {
-        // spotifyApi.pause(); //requires premium account
-        dispatch({
-          type: 'SET_PLAYING_STATUS',
-          payload: false,
-        });
-      } catch (error) {
-        console.log(error);
-      }
+      spotifyApi
+        .pause()
+        .then(() => {
+          console.log('stoped'); //dispatch should be here but play/pause requires premium account, and I still want icons to change for demo purposes
+        })
+        .catch((error) => console.log(error.message));
+      dispatch({
+        type: 'SET_PLAYING_STATUS',
+        payload: false,
+      });
     } else {
-      try {
-        // spotifyApi.play(); //requires premium account
-        dispatch({
-          type: 'SET_PLAYING_STATUS',
-          payload: true,
-        });
-      } catch (error) {
-        console.log(error);
-      }
+      spotifyApi
+        .play()
+        .then(() => {
+          console.log('started');
+        })
+        .catch((error) => console.log(error.message));
+      dispatch({
+        type: 'SET_PLAYING_STATUS',
+        payload: true,
+      });
     }
   };
 
