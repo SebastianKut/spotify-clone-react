@@ -6,7 +6,7 @@ import Songs from './Songs';
 import Submenu from './Submenu';
 import { useGlobalContext } from './StateProvider';
 
-function Body(spotifyApi) {
+function Body() {
   const [isHeaderSolid, setIsHeaderSolid] = useState(false);
   const [isTableSolid, setIsTableSolid] = useState(false);
   const [showTitle, setShowTitle] = useState(false);
@@ -55,12 +55,7 @@ function Body(spotifyApi) {
 
   return (
     <div className="body">
-      <Header
-        solid={isHeaderSolid}
-        playlistName={name}
-        showTitle={showTitle}
-        spotifyApi={spotifyApi}
-      />
+      <Header solid={isHeaderSolid} playlistName={name} showTitle={showTitle} />
       {submenu_show && <Submenu />}
       <Banner
         description={description}
@@ -70,7 +65,7 @@ function Body(spotifyApi) {
         owner={owner}
         total={total}
       />
-      <Songs tracksList={tracks} solid={isTableSolid} spotifyApi={spotifyApi} />
+      <Songs tracksList={tracks} solid={isTableSolid} />
     </div>
   );
 }

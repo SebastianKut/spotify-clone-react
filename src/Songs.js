@@ -8,7 +8,7 @@ import QueryBuilderOutlinedIcon from '@material-ui/icons/QueryBuilderOutlined';
 import SongRow from './SongRow';
 import { useGlobalContext } from './StateProvider';
 
-function Songs({ tracksList, solid, spotifyApi }) {
+function Songs({ tracksList, solid }) {
   const { is_playing, handlePlayback } = useGlobalContext();
 
   return (
@@ -17,12 +17,12 @@ function Songs({ tracksList, solid, spotifyApi }) {
         {is_playing ? (
           <PauseCircleFilledIcon
             className="body__shuffle"
-            onClick={() => handlePlayback(is_playing, spotifyApi)}
+            onClick={() => handlePlayback(is_playing)}
           />
         ) : (
           <PlayCircleFilledIcon
             className="body__shuffle"
-            onClick={() => handlePlayback(is_playing, spotifyApi)}
+            onClick={() => handlePlayback(is_playing)}
           />
         )}
         <FavoriteIcon fontSize="large" className="body__like" />

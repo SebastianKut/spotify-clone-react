@@ -51,7 +51,7 @@ function SongRow({ track, number }) {
       <td className="table__data">
         <p>{albumName}</p>
       </td>
-      <td className="table__data">
+      <td className="table__data table__date">
         <p>{dateAdded}</p>
       </td>
       <td className="table__data rounded_right">

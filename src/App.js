@@ -94,31 +94,7 @@ function App() {
     getTokenAndFetchInitialData();
   }, [getTokenAndFetchInitialData]);
 
-  useEffect(() => {
-    spotifyApi.getPlaylist(playlist_id).then((playlist) => {
-      console.log('discover weekly', playlist);
-      const { description, name, images, tracks, followers, owner } = playlist;
-      const newPlaylist = {
-        description: description,
-        name: name,
-        image: images[0].url,
-        tracks: tracks.items,
-        followers: followers.total,
-        owner: owner.display_name,
-        total: tracks.total,
-      };
-      dispatch({
-        type: 'SET_CURRENT_PLAYLIST',
-        payload: newPlaylist,
-      });
-    });
-  }, [playlist_id, dispatch, token]);
-
-  return (
-    <div className="app">
-      {token ? <Player spotifyApi={spotifyApi} /> : <Login />}
-    </div>
-  );
+  return <div className="app">{token ? <Player /> : <Login />}</div>;
 }
 
 export default App;

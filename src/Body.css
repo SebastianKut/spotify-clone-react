@@ -3,6 +3,7 @@
   height: calc(100vh - 130px);
   color: white;
   overflow-y: overlay;
+  overflow-x: hidden;
   padding: 0px 0px 30px 0px;
   background: linear-gradient(rgb(91, 87, 115), rgb(0, 0, 0, 1));
   overflow-y: scroll;

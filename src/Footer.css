@@ -88,3 +88,9 @@
   font-size: 12px;
   color: #b3b3b3;
 }
+
+@media screen and (max-width: 900px) {
+  .footer__albumLogo {
+    display: none;
+  }
+}

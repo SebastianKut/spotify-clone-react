@@ -97,3 +97,12 @@ th {
 .table__filler__right {
   width: 2.5%;
 }
+
+@media screen and (max-width: 1040px) {
+  .table__date {
+    display: none;
+  }
+  .table__title {
+    width: 55%;
+  }
+}

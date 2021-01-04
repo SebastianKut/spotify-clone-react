@@ -27,6 +27,12 @@ function Sidebar() {
       <SidebarOption Icon={AddCircleIcon} title="Create Playlist" />
       <SidebarOption Icon={StarsIcon} title="Liked Songs" />
       <hr />
+      {/* demo playlist when user has none */}
+      <SidebarOption
+        key="37i9dQZEVXcX651NVljfsf"
+        title="Discover Weekly"
+        playlistId="37i9dQZEVXcX651NVljfsf"
+      />
       <div className="sidebar__playlists">
         {playlists &&
           playlists.map((item) => {

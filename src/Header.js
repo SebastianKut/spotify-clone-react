@@ -7,7 +7,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { Avatar } from '@material-ui/core';
 import { useGlobalContext } from './StateProvider';
 
-function Header({ solid, playlistName, showTitle, spotifyApi }) {
+function Header({ solid, playlistName, showTitle }) {
   const {
     user,
     is_playing,
@@ -32,13 +32,9 @@ function Header({ solid, playlistName, showTitle, spotifyApi }) {
         </div>
         <div className={`title__bar ${showTitle && 'visible'}`}>
           {is_playing ? (
-            <PauseCircleFilledIcon
-              onClick={() => handlePlayback(is_playing, spotifyApi)}
-            />
+            <PauseCircleFilledIcon onClick={() => handlePlayback(is_playing)} />
           ) : (
-            <PlayCircleFilledIcon
-              onClick={() => handlePlayback(is_playing, spotifyApi)}
-            />
+            <PlayCircleFilledIcon onClick={() => handlePlayback(is_playing)} />
           )}
           <h2>{playlistName}</h2>
         </div>

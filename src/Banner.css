@@ -30,14 +30,29 @@
   margin: 10px 0;
 }
 
+@media screen and (max-width: 1400px) {
+  .banner__infoText > h2 {
+    font-size: 80px;
+  }
+  .banner__info > img {
+    width: 210px;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .banner__infoText > h2 {
     font-size: 72px;
   }
+  .banner__info > img {
+    width: 200px;
+  }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1040px) {
   .banner__infoText > h2 {
     font-size: 48px;
+  }
+  .banner__info > img {
+    width: 200px;
   }
 }

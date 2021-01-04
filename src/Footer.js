@@ -10,8 +10,9 @@ import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import { Grid, Slider } from '@material-ui/core';
 import { useGlobalContext } from './StateProvider';
+import { spotifyApi } from './spotify';
 
-function Footer({ spotifyApi }) {
+function Footer() {
   const {
     current_playlist,
     is_playing,
@@ -23,9 +24,10 @@ function Footer({ spotifyApi }) {
   } = useGlobalContext();
   const { tracks } = current_playlist;
 
-  const handleNext = (spotifyApi) => {
+  const handleNext = () => {
     // spotifyApi.skipToNext(); //premium account required
     spotifyApi.getMyCurrentPlayingTrack().then((res) => {
+      // console.log('currentplayingtrack', res);
       dispatch({
         type: 'SET_CURRENT_SONG',
         payload: res.item,
@@ -37,7 +39,7 @@ function Footer({ spotifyApi }) {
     });
   };
 
-  const handlePrevious = (spotifyApi) => {
+  const handlePrevious = () => {
     // spotifyApi.skipToPrevious(); //premium account required
     spotifyApi.getMyCurrentPlayingTrack().then((res) => {
       dispatch({
@@ -95,23 +97,20 @@ function Footer({ spotifyApi }) {
         />
         <SkipPreviousIcon
           className="footer__icon"
-          onClick={() => handlePrevious(spotifyApi)}
+          onClick={() => handlePrevious()}
         />
         {is_playing ? (
           <PauseCircleOutlineIcon
             className="footer__icon play__icon"
-            onClick={() => handlePlayback(is_playing, spotifyApi)}
+            onClick={() => handlePlayback(is_playing)}
           />
         ) : (
           <PlayCircleOutlineIcon
             className="footer__icon play__icon"
-            onClick={() => handlePlayback(is_playing, spotifyApi)}
+            onClick={() => handlePlayback(is_playing)}
           />
         )}
-        <SkipNextIcon
-          className="footer__icon"
-          onClick={() => handleNext(spotifyApi)}
-        />
+        <SkipNextIcon className="footer__icon" onClick={() => handleNext()} />
         <RepeatIcon
           className={`footer__icon ${repeat && 'active'}`}
           onClick={handleRepeat}

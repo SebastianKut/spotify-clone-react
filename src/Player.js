@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Player.css';
 import Sidebar from './Sidebar';
 import Body from './Body';
 import Footer from './Footer';
 import { useGlobalContext } from './StateProvider';
+import { spotifyApi } from './spotify';
 
-function Player({ spotifyApi }) {
-  const { submenu_show, dispatch } = useGlobalContext();
+function Player() {
+  const { submenu_show, dispatch, playlist_id } = useGlobalContext();
+
   const handleCloseSubmenu = (e) => {
     if (submenu_show && !e.target.classList.contains('link')) {
       dispatch({
@@ -15,13 +17,34 @@ function Player({ spotifyApi }) {
       });
     }
   };
+
+  useEffect(() => {
+    spotifyApi.getPlaylist(playlist_id).then((playlist) => {
+      console.log('discover weekly', playlist);
+      const { description, name, images, tracks, followers, owner } = playlist;
+      const newPlaylist = {
+        description: description,
+        name: name,
+        image: images[0].url,
+        tracks: tracks.items,
+        followers: followers.total,
+        owner: owner.display_name,
+        total: tracks.total,
+      };
+      dispatch({
+        type: 'SET_CURRENT_PLAYLIST',
+        payload: newPlaylist,
+      });
+    });
+  }, [playlist_id, dispatch]);
+
   return (
     <div className="player" onClick={handleCloseSubmenu}>
       <div className="player__body">
         <Sidebar />
-        <Body spotifyApi={spotifyApi} />
+        <Body />
       </div>
-      <Footer spotifyApi={spotifyApi} />
+      <Footer />
     </div>
   );
 }
